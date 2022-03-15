@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "jest",
+    "test": "set LOG_DISABLED=true && set NODE_OPTIONS=--experimental-vm-modules && npx jest --runInBand",
+    "test:watch": "set LOG_DISABLED=true && set NODE_OPTIONS=--experimental-vm-modules && npx jest --runInBand --no-cache --watchAll",
+    "test:coverage": "set LOG_DISABLED=true && set NODE_OPTIONS=--experimental-vm-modules && npx jest --runInBand --no-cache --coverage __tests__/unit",
     "start": "node server/index.js",
     "live-reload": "nodemon server/index.js"
   },
@@ -24,6 +26,7 @@
   },
   "homepage": "https://github.com/marcoant08/spotify-radio-js-expert#readme",
   "devDependencies": {
+    "jest": "^27.5.1",
     "nodemon": "^2.0.15"
   },
   "dependencies": {
